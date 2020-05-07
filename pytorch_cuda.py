@@ -1,14 +1,4 @@
-"""
-CFAR10 dataset: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck
-image sizes 3*32*32. 3 channel color images of 32*32 pixels
-Training steps:
-    load and normalize CIFAR10 training and test datasets using "torchvision"
-    define a convolutional neural network
-    define a loss function
-    train the network on train data
-    test the network on test data
-"""
-#%% Loading and normalizing CIFAR10
+
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -32,7 +22,7 @@ testloader = torch.utils.data.DataLoader(testset,batch_size=batch_size)
 
 classes = ("plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck")
 
-# %% lets look at some images
+# %% some images
 
 def imshow(img):
     """
@@ -44,14 +34,14 @@ def imshow(img):
     
     plt.show()
 
-# get some random training images
+# random training images
 dataiter = iter(trainloader)
 images, labels = dataiter.next()
 
 # show images
 imshow(torchvision.utils.make_grid(images))
 
-#%% Define CNN
+#%% CNN
 
 class Net(nn.Module):
     
